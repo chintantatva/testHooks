@@ -3,6 +3,7 @@ import React, { FunctionComponent as Component, useEffect } from "react";
 import { View, FlatList } from "react-native";
 import { Text, Screen, TextField, Button } from "../../components";
 import { useStores } from "../../models";
+import ThemeContext from "../../theme/ThemeContext";
 
 
 
@@ -32,11 +33,16 @@ export const NewsListScreen: Component = observer(function NewsListScreen(props)
 
     return (
         <Screen style={{ flex: 1, alignItems: "center", justifyContent: "flex-start", }} >
-            <Text style={{ color: "black", fontWeight: "bold", fontSize: 24, marginBottom: 30 }} > Today's Business news</Text>
+            <ThemeContext.Consumer>
+                {color => (
+                    <Text style={{ color: color, fontWeight: "bold", fontSize: 24, marginBottom: 30 }} > Today's Business news</Text>
+                )}
+            </ThemeContext.Consumer>
             <FlatList
                 data={rootStore.newsStore.newsList}
                 renderItem={({ item }) => <NewsHeadLine item={item} />}
                 keyExtractor={item => item.id}
+
 
             />
 
