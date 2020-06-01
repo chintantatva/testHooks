@@ -15,24 +15,24 @@ export const NewsDetailsScreen: Component = observer(function NewsDetailsScreen(
 
     return (
         <Screen style={{ flex: 1, alignItems: "center", justifyContent: "flex-start", }} >
-            <View  >
-                <Text style={{ color: "black", marginBottom: 10, fontWeight: "bold" }} >Title</Text>
+            <View>
+                <Text style={{ color: "black", marginBottom: 10, fontWeight: "bold", textAlign: "center" }} >Title</Text>
                 <Text style={{ color: "black" }}>{selectedNews.title}</Text>
             </View>
             <View style={{ marginVertical: 10 }} >
-                <Text style={{ color: "black", marginBottom: 10, fontWeight: "bold" }}  >Description</Text>
+                <Text style={{ color: "black", marginBottom: 10, fontWeight: "bold", textAlign: "center" }}  >Description</Text>
                 <Text style={{ color: "black" }}  >{selectedNews.description}</Text>
             </View>
 
             <View style={{ marginVertical: 10 }} >
-                <Text style={{ color: "black", marginBottom: 10, fontWeight: "bold" }}  >URl</Text>
+                <Text style={{ color: "black", marginBottom: 10, fontWeight: "bold", textAlign: "center" }}>URl</Text>
                 <Text style={{ color: "black" }}>{selectedNews.url}</Text>
             </View>
 
             <View style={{ marginVertical: 10 }} >
-                <Text style={{ color: "black", marginBottom: 10, fontWeight: "bold", textAlign: 'left' }}  >Image</Text>
+                <Text style={{ color: "black", marginBottom: 10, fontWeight: "bold", textAlign: 'center' }}  >Image</Text>
 
-                <Image source={{ uri: selectedNews.urlToImage }} style={{ height: 50, width: 50 }} />
+                <Image source={{ uri: selectedNews.urlToImage }} style={{ height: 300, width: 300 }} resizeMode={"contain"} />
             </View>
 
         </Screen>

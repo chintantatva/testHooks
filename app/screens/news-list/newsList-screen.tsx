@@ -23,7 +23,7 @@ export const NewsListScreen: Component = observer(function NewsListScreen(props)
                     rootStore.newsStore.updateSelectedNews(item)
                     props.navigation.navigate('newsDetails')
                 }}
-                style={{ height: 'auto', width: "100%", marginVertical: 10, flexWrap: "nowrap", paddingHorizontal: 10, alignItems: "flex-start" }}>
+                style={{ height: 'auto', width: "100%", marginVertical: 2, flexWrap: "nowrap", paddingHorizontal: 10, alignItems: "flex-start" }}>
                 <Text style={{ color: "black", textAlign: "left" }}>{item.title}</Text>
             </Button>
         );
@@ -31,11 +31,13 @@ export const NewsListScreen: Component = observer(function NewsListScreen(props)
 
 
     return (
-        <Screen style={{ flex: 1, alignItems: "center", justifyContent: "center", }} >
+        <Screen style={{ flex: 1, alignItems: "center", justifyContent: "flex-start", }} >
+            <Text style={{ color: "black", fontWeight: "bold", fontSize: 24, marginBottom: 30 }} > Today's Business news</Text>
             <FlatList
                 data={rootStore.newsStore.newsList}
                 renderItem={({ item }) => <NewsHeadLine item={item} />}
                 keyExtractor={item => item.id}
+
             />
 
         </Screen>
